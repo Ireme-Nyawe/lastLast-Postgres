@@ -34,7 +34,8 @@ export const createPost = async (req, res) => {
       message: "Good Job, A Post Created successfully.",
       data: post,
     });
-  } catch (error) {
+  } 
+  catch (error) {
     return res.status(500).json({
       status: "500",
       message: "Error Occured, Failed To Create A Post",

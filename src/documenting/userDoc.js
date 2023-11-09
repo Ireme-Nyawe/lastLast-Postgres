@@ -1,6 +1,6 @@
 /**
  *  @swagger
- * /api/users/signUp/:
+ * /pgs/user/create/:
  *   post:
  *     summary: Account Creation For New User.
  *     tags: [User-Model]
@@ -27,7 +27,7 @@
  *       500:
  *         description: Account Creation Failed.
  * 
- * /api/users/signIn/:
+ * /pgs/user/login/:
  *   post:
  *     summary: User Login.
  *     tags: [User-Model]
@@ -46,8 +46,10 @@
  *       200:
  *         description: Good job, User Loged In .
  *       500:
- *         description: Account Login Failed.
- * /api/users/getAllUsers/:
+ *         description: User Login Failed.
+ * 
+ * 
+ * /pgs/user/users/:
  *   get:
  *     summary: View All Available users.
  *     tags: [User-Model]
@@ -58,18 +60,11 @@
  *         description: Failed to retrieve Available Users.
  * 
  * 
- * /api/users/update/{id}:
+ * /pgs/user/update/:
  *   put:
  *     summary: Update A Given User.
  *     tags: [User-Model]
  *     
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: Id Of User To Update.
  *     requestBody:
  *       content:
  *         multipart/form-data:

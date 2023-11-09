@@ -1,6 +1,6 @@
 /**
  *  @swagger
- * /api/post/create/:
+ * /pgs/post/create/:
  *   post:
  *     summary: Create New Blog  Post.
  *     tags: [Post-Model]
@@ -23,13 +23,13 @@
  *                 type: string
  *     responses:
  *       200:
- *         description: Good job, Pos Created Successfully.
+ *         description: Good job, Post Created Successfully.
  *       500:
  *         description: Post Creation Failed.
  * 
- * /api/post/posts:
+ * /pgs/post/getall/:
  *   get:
- *     summary: View All Available posts.
+ *     summary: Get All Available posts.
  *     tags: [Post-Model]
  *     responses:
  *       200:
@@ -37,9 +37,9 @@
  *       500:
  *         description: Failed to retrieve Available Posts.
  * 
- * /api/post/adminPosts:
+ * /pgs/post/adminposts/:
  *   get:
- *     summary: Posts Respective To Author.
+ *     summary: Posts Respective To Administer.
  *     tags: [Post-Model]
  *     responses:
  *       200:
@@ -47,16 +47,16 @@
  *       500:
  *         description: Failed to retrieve Your Posts.
  * 
- * /api/post/one/{id}:
+ * /pgs/post/getone/{id}:
  *   get:
- *     summary: View Specific Post.
+ *     summary: get One Post.
  *     tags: [Post-Model]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: number
  *         description: ID Of Post To View.
  *     responses:
  *       200:
@@ -66,7 +66,7 @@
  *       500:
  *         description: Failed to retrieve A Post.
  * 
- * /api/post/update/{id}:
+ * /pgs/post/update/{id}:
  *   put:
  *     summary: Update Blog Post With Provided Id.
  *     tags: [Post-Model]
@@ -76,7 +76,7 @@
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: number
  *         description: Id Of Post To Update.
  *     requestBody:
  *       content:
@@ -103,7 +103,7 @@
  *       500:
  *         description: Failed To Update Specified Post!
  * 
- * /api/post/delete/{id}:
+ * /pgs/post/delete/{id}:
  *   delete:
  *     summary: Delete A Post.
  *     tags: [Post-Model]
@@ -112,7 +112,7 @@
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type:  number
  *         description: ID Of Post To Delete.
  *     responses:
  *       200:

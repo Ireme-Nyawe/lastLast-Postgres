@@ -89,17 +89,10 @@
  *         description: Id Provided Do Not Correspond To Any Post!.
  *       500:
  *         description: Failed To Update Specified Post!
- * /api/users/delete/{id}:
+ * /pgs/user/delete/:
  *   delete:
  *     summary: Delete User.
  *     tags: [User-Model]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: ID Of User To Delete.
  *     responses:
  *       200:
  *         description: A Given Uesr Deleted Successfully.

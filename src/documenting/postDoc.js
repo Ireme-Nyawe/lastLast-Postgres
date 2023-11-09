@@ -103,7 +103,7 @@
  *       500:
  *         description: Failed To Update Specified Post!
  * 
- * /pgs/post/delete/{id}:
+ * /pgs/post/delete/id:
  *   delete:
  *     summary: Delete A Post.
  *     tags: [Post-Model]

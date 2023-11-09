@@ -48,11 +48,13 @@ if(checkEmail) {
   });
 
   } catch (error) {
+    console.log(error.message);
     if(error.name === "SequelizeValidationError"){
     console.log("Validation error: " + error.error);
   }else{
     console.log("Unhandled Error:" + error)
   }
+  
     return res.status(500).json({
       status: "500",
       message: "Failed To create User Account; Check Back!",

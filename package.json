@@ -7,7 +7,7 @@
     "undomigrate": "npx sequelize-cli db:migrate:undo",
     "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "executeseeder": "npx sequelize-cli db:seed:all",
-    "start": "npm run build && node ./build/src/index.js",
+    "start": "npm run build && node ./build/src/index.js && npm run domigrate",
     "start:dev": "nodemon --exec babel-node ./src/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build/src/ ./src/ -s",

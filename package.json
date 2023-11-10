@@ -7,11 +7,13 @@
     "undomigrate": "npx sequelize-cli db:migrate:undo",
     "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "executeseeder": "npx sequelize-cli db:seed:all",
-    "start": "npm run build && node ./build/src/index.js && npm run domigrate",
-    "start:dev": "nodemon --exec babel-node ./src/index.js",
+    "start:dev": "nodemon --exec babel-node ./src/index.js && npx sequelize-cli db:migrate",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build/src/ ./src/ -s",
-    "build": "npm run build-babel"
+    "build": "npm run build-babel",
+    "start-with-migration": "npm run migrate && npm start",
+    "start": "nodemon --exec babel-node ./src/index.js",
+    "migrate": "sequelize db:migrate"
   },
   "author": "",
   "license": "ISC",

@@ -23,7 +23,7 @@ const options = {
         },
         
         servers :[{
-            url: 'http://localhost:3300',
+            url: 'https://blogpgs.onrender.com/',
         }],
         security: [
             {

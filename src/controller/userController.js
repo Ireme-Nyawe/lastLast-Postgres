@@ -177,7 +177,7 @@ export const updateUser = async (req,res) =>{
 // update user with role
 export const updateUserRole = async (req,res) =>{
   try {
-    const id = req.params;
+    const {id} = req.params;
     const {firstname, lastname,role,email,password,profile} = req.body;
 
     const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -202,7 +202,7 @@ export const updateUserRole = async (req,res) =>{
     const editAccount = await users.update({
         firstname,
         lastname,
-        role,
+        role:'user',
         email,
         password: hashedpass,
         profile: userProf?.secure_url

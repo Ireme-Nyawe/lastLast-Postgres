@@ -89,6 +89,46 @@
  *         description: Id Provided Do Not Correspond To Any Post!.
  *       500:
  *         description: Failed To Update Specified Post!
+ * 
+ * /pgs/user/userupdate/{id}:
+ *   put:
+ *     summary: Update A Given User.
+ *     tags: [User-Model]
+*     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Id Of User To Update.
+ *     
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstname:
+ *                  type: string
+ *               lastname:
+ *                 type: string
+ *               role:
+ *                 type: string
+ * 
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               profile:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Well Done, Post Information Updated Successflly.
+ *       404:
+ *         description: Id Provided Do Not Correspond To Any Post!.
+ *       500:
+ *         description: Failed To Update Specified Post!
  * /pgs/user/delete/:
  *   delete:
  *     summary: Delete User.

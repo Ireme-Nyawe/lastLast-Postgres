@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "domigrate": "npx sequelize-cli db:migrate",
     "undomigrate": "npx sequelize-cli db:migrate:undo",
     "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "executeseeder": "npx sequelize-cli db:seed:all",
-    "start:dev": "nodemon --exec babel-node ./src/index.js && npx sequelize-cli db:migrate",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build/src/ ./src/ -s",
     "build": "npm run build-babel",

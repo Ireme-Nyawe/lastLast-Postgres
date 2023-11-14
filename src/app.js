@@ -23,7 +23,7 @@ const options = {
         },
         
         servers :[{
-            url: 'https://blogpgs.onrender.com',
+            url: 'https://blogpgs.onrender.com/',
         }],
         security: [
             {

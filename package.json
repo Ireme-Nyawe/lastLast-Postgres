@@ -4,13 +4,14 @@
   "description": "",
   "scripts": {
     "undomigrate": "npx sequelize-cli db:migrate:undo",
-    "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "executeseeder": "npx sequelize-cli db:seed:all",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build/src/ ./src/ -s",
     "build": "npm run build-babel",
     "start-with-migration": "npm run migrate && npm start",
+    "start-undomigrate":"npm run undomigrate && npm start",
     "start": "nodemon --exec babel-node ./src/index.js",
+    "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "migrate": "sequelize db:migrate"
   },
   "author": "",

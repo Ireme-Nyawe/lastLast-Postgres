@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "domigrate": "npx sequelize-cli db:migrate",
-    "undomigrate": "npx sequelize-cli db:migrate:undo",
     "crateseeder": "npx sequelize-cli seed:generate --name demo-user",
     "executeseeder": "npx sequelize-cli db:seed:all",
-    "start": "npm run build && node ./build/src/index.js",
-    "start:dev": "nodemon --exec babel-node ./src/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build/src/ ./src/ -s",
-    "build": "npm run build-babel"
+    "build": "npm run build-babel",
+    "start-with-migration": "npm run migrate && npm start",
+    "start-undomigrate":"npm run undomigrate && npm start",
+    "start": "nodemon --exec babel-node ./src/index.js",
+    "undomigrate": "npx sequelize-cli db:migrate:undo",
+    "migrate": "sequelize db:migrate"
   },
   "author": "",
   "license": "ISC",
@@ -32,7 +33,9 @@
     "path": "^0.12.7",
     "pg": "^8.11.3",
     "sequelize": "^6.33.0",
-    "sequelize-cli": "^6.6.1"
+    "sequelize-cli": "^6.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "@babel/node": "^7.22.19",

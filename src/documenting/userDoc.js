@@ -1,6 +1,6 @@
 /**
  *  @swagger
- * /api/users/signUp/:
+ * /pgs/user/create/:
  *   post:
  *     summary: Account Creation For New User.
  *     tags: [User-Model]
@@ -27,7 +27,7 @@
  *       500:
  *         description: Account Creation Failed.
  * 
- * /api/users/signIn/:
+ * /pgs/user/login/:
  *   post:
  *     summary: User Login.
  *     tags: [User-Model]
@@ -46,8 +46,10 @@
  *       200:
  *         description: Good job, User Loged In .
  *       500:
- *         description: Account Login Failed.
- * /api/users/getAllUsers/:
+ *         description: User Login Failed.
+ * 
+ * 
+ * /pgs/user/users/:
  *   get:
  *     summary: View All Available users.
  *     tags: [User-Model]
@@ -58,18 +60,11 @@
  *         description: Failed to retrieve Available Users.
  * 
  * 
- * /api/users/update/{id}:
+ * /pgs/user/update/:
  *   put:
  *     summary: Update A Given User.
  *     tags: [User-Model]
  *     
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: Id Of User To Update.
  *     requestBody:
  *       content:
  *         multipart/form-data:
@@ -94,17 +89,50 @@
  *         description: Id Provided Do Not Correspond To Any Post!.
  *       500:
  *         description: Failed To Update Specified Post!
- * /api/users/delete/{id}:
- *   delete:
- *     summary: Delete User.
+ * 
+ * /pgs/user/userupdate/{id}:
+ *   put:
+ *     summary: Update A Given User.
  *     tags: [User-Model]
- *     parameters:
+*     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
- *           type: string
- *         description: ID Of User To Delete.
+ *           type: number
+ *         description: Id Of User To Update.
+ *     
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstname:
+ *                  type: string
+ *               lastname:
+ *                 type: string
+ *               role:
+ *                 type: string
+ * 
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               profile:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Well Done, Post Information Updated Successflly.
+ *       404:
+ *         description: Id Provided Do Not Correspond To Any Post!.
+ *       500:
+ *         description: Failed To Update Specified Post!
+ * /pgs/user/delete/:
+ *   delete:
+ *     summary: Delete User.
+ *     tags: [User-Model]
  *     responses:
  *       200:
  *         description: A Given Uesr Deleted Successfully.

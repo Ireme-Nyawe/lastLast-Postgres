@@ -48,11 +48,13 @@ if(checkEmail) {
   });
 
   } catch (error) {
+    console.log(error.message);
     if(error.name === "SequelizeValidationError"){
     console.log("Validation error: " + error.error);
   }else{
     console.log("Unhandled Error:" + error)
   }
+  
     return res.status(500).json({
       status: "500",
       message: "Failed To create User Account; Check Back!",
@@ -172,6 +174,54 @@ export const updateUser = async (req,res) =>{
   }
 };
 
+// update user with role
+export const updateUserRole = async (req,res) =>{
+  try {
+    const {id} = req.params;
+    const {firstname, lastname,role,email,password,profile} = req.body;
+
+    const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!validateEmail.test(email)) {
+        return res.status(400).json({
+            status: "400",
+            message: "Invalid Email, Use Similar To 'example@gmail.com'",
+        });
+    }
+    const validatePassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    if (!validatePassword.test(password)) {
+        return res.status(400).json({
+            status: "400",
+            message: "A Weak Password, Use Both Characters And Number And Not Less Than 6 Digits!",
+        });
+    }
+
+    let userProf;
+    if(req.file) userProf = await uploadToCloud(req.file, res);
+    const encrypt = await bcrypt.genSalt(10);
+    const hashedpass = await bcrypt.hash(password, encrypt);
+    const editAccount = await users.update({
+        firstname,
+        lastname,
+        role:'user',
+        email,
+        password: hashedpass,
+        profile: userProf?.secure_url
+    },
+    {where:{id:id}});
+
+    return res.status(200).json({
+      status: "200",
+      message: "Good Job, User Account Updated Successfully;",
+    });
+
+  } catch (error) {
+      return res.status(500).json({
+          status: "500",
+          message: "Failed To UpdateUser Account; Check Back!",
+          error:error.message,
+      });
+  }
+};
 //Delete An Existing User
 
 export const deleteUser = async(req, res) => {

@@ -1,6 +1,6 @@
 /**
  *  @swagger
- * /api/commenting/comment/{id}:
+ * /pgs/comment/create/{id}:
  *   post:
  *     summary: Leave A Comment To Post.
  *     tags: [Comment-Model]
@@ -9,7 +9,7 @@
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: number
  *         description: Id Of Post To Comment On.
  *     requestBody:
  *       content:
@@ -23,11 +23,11 @@
  *       200:
  *         description: Good Job, Your Comment Sent SuccessFullyly.
  *       404:
- *         description: No Post Available!.
+ *         description: Post Not Available!.
  *       500:
- *         description: Failed To Retrive A Given Post!
+ *         description: Failed To Leave A Comment To A Given Post!
  * 
- * /api/commenting/comments/:
+ * /pgs/comment/getall/:
  *   get:
  *     summary: Viewing All comments in General.
  *     tags: [Comment-Model]

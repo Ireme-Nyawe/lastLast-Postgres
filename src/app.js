@@ -40,7 +40,7 @@ const options = {
             },
         }
     },
-    apis : ['src/documenting/*.js'], //  Determining documentation file
+    apis : ['src/documenting/userDoc.js','src/documenting/postDoc.js','src/documenting/commentDoc.js'], //  Determining documentation file
 }
 const swaggerSpec = swaggerJSDoc(options)
 
